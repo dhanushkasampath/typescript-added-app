@@ -1,9 +1,11 @@
-import React, {useRef} from "react";
+import React, {useRef, useContext} from "react";
 import classes from "./NewTodo.module.css";
+import {TodosContext} from "../store/todos-context";
 
 
 //this says "onAddTodo" is a function which takes a tring param and return nothing
-const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
+const NewTodo: React.FC = () => {
+    const todosCtx = useContext(TodosContext);
     //here we want to render a form that allows users to enter new todo
     const todoTextInputRef = useRef<HTMLInputElement>(null);//all html elements have build in types
 
@@ -24,7 +26,7 @@ const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
             return;
         }
 
-        props.onAddTodo(enteredText);
+        todosCtx.addTodo(enteredText);
     }
 
     //we know form is submitted after this todoTextInputRef is connected
