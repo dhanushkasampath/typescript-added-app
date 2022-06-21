@@ -16,10 +16,18 @@ function App() {
         });
     }
 
+    //this is the logic happening function. Here once this function executed after clicking on a todo, this function
+    // set the todo again by filtering the remain todos except the id we passed
+    const removeTodoHander = (todoId: string) => {
+        setTodos((prevTodos) => {
+            return prevTodos.filter(todo => todo.id !== todoId);
+        });
+    }
+
     return (
         <div>
           <NewTodo onAddTodo={addTodoHandler}/>
-          <Todos items={todos}/>
+          <Todos items={todos} onRemoveTodo={removeTodoHander}/>
         </div>
     );
 }

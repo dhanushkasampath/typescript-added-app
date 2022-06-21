@@ -2,6 +2,8 @@
 
 ### `npx create-react-app my-app --template typescript`
 
+Feature: Once we click on the todo items they should be removed.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
